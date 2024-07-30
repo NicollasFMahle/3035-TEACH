@@ -1,0 +1,221 @@
+//EXERCICIO 1
+import java.util.Scanner;
+
+public class SomaMenorQueC {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        System.out.print("Digite o valor de A: ");
+        double A = scanner.nextDouble();
+        
+        System.out.print("Digite o valor de B: ");
+        double B = scanner.nextDouble();
+        
+        System.out.print("Digite o valor de C: ");
+        double C = scanner.nextDouble();
+
+        
+        if ((A + B) < C) {
+            System.out.println("A soma de A e B é menor que C.");
+        } else {
+            System.out.println("A soma de A e B não é menor que C.");
+        }
+
+        
+        scanner.close();
+    }
+}
+
+//EXERCICIO 2
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite o seu nome: ");
+        String nome = scanner.nextLine();
+
+
+        System.out.print("Digite o seu sexo (M/F): ");
+        String sexo = scanner.nextLine().toUpperCase();
+
+
+        System.out.print("Digite o seu estado civil (CASADA/CASADO/SOLTEIRA/SOLTEIRO): ");
+        String estadoCivil = scanner.nextLine().toUpperCase();
+
+
+        if (sexo.equals("F") && estadoCivil.equals("CASADA")) {
+            System.out.print("Digite o tempo de casada (em anos): ");
+            int anosCasada = scanner.nextInt();
+            System.out.println(nome + ", você está casada há " + anosCasada + " anos.");
+        } 
+        else {
+            System.out.println(nome + ", você não está de acordo com o perfil que procuramos.");
+        }
+
+        scanner.close();
+    }
+}
+
+//EXERCICIO 3
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite um número: ");
+        int numero = scanner.nextInt();
+
+
+        if (numero % 2 == 0) {
+            System.out.println("O número " + numero + " é par.");
+        } else {
+            System.out.println("O número " + numero + " é ímpar.");
+        }
+
+
+        scanner.close();
+    }
+}
+
+// EXERCICIO 4
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite o valor de A: ");
+        int A = scanner.nextInt();
+
+        System.out.print("Digite o valor de B: ");
+        int B = scanner.nextInt();
+
+        int C;
+
+
+        if (A == B) {
+            C = A + B;
+        } else {
+            C = A * B;
+        }
+
+
+        System.out.println("O resultado é: " + C);
+
+
+        scanner.close();
+    }
+}
+
+//EXERCICIO 5
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite um número: ");
+        int numero = scanner.nextInt();
+
+
+        int resultado;
+        if (numero > 0) {
+            resultado = numero * 2;
+        } else {
+            resultado = numero * 3;
+        }
+
+
+        System.out.println("O resultado é: " + resultado);
+
+
+        scanner.close();
+    }
+}
+
+//EXERCICIO 6
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite um número: ");
+        int numero = scanner.nextInt();
+
+
+        int resultado;
+
+
+        if (numero % 2 == 0) {
+            resultado = numero + 5;
+        } else {
+            resultado = numero + 8;
+        }
+
+
+        System.out.println("O resultado é: " + resultado);
+
+
+        scanner.close();
+    }
+}
+
+//EXERCICIO 7
+import java.util.Scanner;
+
+public class Exercicio3035 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Digite o primeiro valor: ");
+        int valor1 = scanner.nextInt();
+
+        System.out.print("Digite o segundo valor: ");
+        int valor2 = scanner.nextInt();
+
+        System.out.print("Digite o terceiro valor: ");
+        int valor3 = scanner.nextInt();
+
+
+        System.out.println("Os valores em ordem decrescente são:");
+
+
+        if (valor1 > valor2 && valor1 > valor3) {
+            System.out.print(valor1 + " ");
+            if (valor2 > valor3) {
+                System.out.print(valor2 + " " + valor3);
+            } else {
+                System.out.print(valor3 + " " + valor2);
+            }
+        } else if (valor2 > valor1 && valor2 > valor3) {
+            System.out.print(valor2 + " ");
+            if (valor1 > valor3) {
+                System.out.print(valor1 + " " + valor3);
+            } else {
+                System.out.print(valor3 + " " + valor1);
+            }
+        } else {
+            System.out.print(valor3 + " ");
+            if (valor1 > valor2) {
+                System.out.print(valor1 + " " + valor2);
+            } else {
+                System.out.print(valor2 + " " + valor1);
+            }
+        }
+
+
+        scanner.close();
+    }
+}
+
