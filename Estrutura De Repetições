@@ -1,0 +1,131 @@
+1) Crie um algoritmo que imprima na tela os números de 0 a
+ 100 que são pares.
+
+public class Teste {
+    public static void main(String[] args) {
+      
+        for (int i = 0; i <= 100; i++) {
+           
+            if (i % 2 == 0) {
+                
+                System.out.println(i);
+            }
+        }
+    }
+}
+
+ 2) Crie um número “Randomicamente” usando a classe
+ Random do java, em seguida crie um algoritmo usando um
+ laço de repetição onde o usuário vai digitar um número
+ qualquer. O laço deve encerrar quando o usuário acertar o
+ número criado randomicamente. Para dar dicas ao usuário,
+ printar na tela “MAIOR” quando o número randômico for
+ menor que o número digitado pelo usuário, caso contrário
+ printar na tela “MENOR”
+
+public class Teste {
+    public static void main(String[] args) {
+       
+        Random random = new Random();  
+        
+        int num = random.nextInt(11);
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        int tentativa;
+        
+        System.out.println("Teste adivinhar o número entre 0 e 10:");
+        
+        
+        while (true) {
+            
+            tentativa = scanner.nextInt();
+            
+            
+            if (tentativa == num) {
+                System.out.println("Parabéns! Você acertou o número!");
+                break; 
+            } else if (tentativa < num) {
+                System.out.println("MAIOR");
+            } else {
+                System.out.println("MENOR");
+            }
+        }
+    }
+}
+
+ 3) Crie um algoritmo que lê do usuário um número de 1 a 10,
+ emseguida, usando laço de repetição print a tabuada do
+ número digitado
+
+public class Teste {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        int num;
+        
+        System.out.println("Digite um número de 1 a 10 para efetuar a tabuada:");
+        num = scanner.nextInt();
+        
+        if (num < 1 || num > 10) {
+            System.out.println("Número inválido! Por favor, digite um número entre 1 e 10.");
+        } else {
+            
+            System.out.println("Tabuada do " + num + ":");
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(num + " x " + i + " = " + (num * i));
+            }
+        }
+    }
+}
+
+4) Crie um algoritmo que receba idade de 5 pessoas, em
+ seguida printar na tela o total de pessoas que têm idade maior
+ que 18 anos
+
+public class Teste {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        int maioridade = 0;
+  
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Digite a idade da pessoa " + i + ":");
+            int idade = scanner.nextInt();
+            
+            
+            if (idade > 18) {
+                maioridade++;
+            }
+        }
+            
+        System.out.println("Total de pessoas com idade maior que 18 anos: " + maioridade);
+        
+    }
+}
+
+ 5) Crie um algoritmo que receba um número do usuário,
+ depois printar na tela todos os números pares até o número
+ digitado
+
+public class Teste {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite um número:");
+        int num= scanner.nextInt();
+        
+        if (num< 0) {
+            System.out.println("Por favor, digite um número não negativo.");
+        } else {
+            
+            System.out.println("Números pares até " + num+ ":");
+            for (int i = 2; i <= num; i += 2) {
+                System.out.println(i);
+            }
+        }
+    }
+}
