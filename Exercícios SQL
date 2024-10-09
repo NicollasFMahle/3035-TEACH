@@ -1,0 +1,27 @@
+1-Selecione todos os funcionários:
+SELECT * FROM employees;
+
+2-Selecione os funcionários cujo salário é superior a 55000:
+SELECT * FROM employees
+WHERE salary > 55000;
+
+3-Selecione os funcionários que foram contratados depois de 2020:
+SELECT * FROM employees
+WHERE hire_date > '2020-12-31';
+
+4-Selecione os funcionários cujos nomes começam com 'A':
+SELECT * FROM employees
+WHERE emp_name LIKE 'A%';
+
+1-Calcule o total de pedidos:
+SELECT COUNT(*) AS total_orders
+FROM orders;
+
+2-Calcule o total de pedidos para cada cliente:]
+SELECT customer_id, COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer_id;
+
+3-Liste a média e o valor total de pedidos:
+SELECT AVG(total_amount) AS average_order, SUM(total_amount) AS total_amount
+FROM orders;
