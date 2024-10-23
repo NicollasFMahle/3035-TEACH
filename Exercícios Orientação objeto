@@ -1,0 +1,207 @@
+)Exercício 1
+
+MAIN
+import java.util.Scanner;
+
+public class Carro {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        //ClasseCarro carro = new ClasseCarro(marca, modelo, ano);
+
+        System.out.print("Digite a marca do carro: ");
+        String marca = scanner.nextLine();
+
+        System.out.print("Digite o modelo do carro: ");
+        String modelo = scanner.nextLine();
+
+        System.out.print("Digite o ano do carro: ");
+        int ano = scanner.nextInt();
+
+        ClasseCarro carro = new ClasseCarro(marca, modelo, ano);
+
+        System.out.println("Descrição do carro:");
+        System.out.println(carro.getDescricao());
+
+//        carro1.setMarca("Ford");
+//        carro1.setModelo("Fiesta");
+//        carro1.setAno(2022);
+
+        ClasseCarro carro2 = new ClasseCarro("Toyota", "Corolla", 2024);
+        System.out.println("\nDescrição do carro2:");
+        System.out.println(carro2.getDescricao());
+    }
+}
+
+CLASSE
+
+public class ClasseCarro {
+    private String marca;
+    private String modelo;
+    private int ano;
+
+    public ClasseCarro() {
+        this.marca = "";
+        this.modelo = "";
+        this.ano = 0;
+    }
+
+    public ClasseCarro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public String getDescricao() {
+        return String.format("Marca: %s, Modelo: %s, Ano: %d", marca, modelo, ano);
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+)Exercício 2
+
+MAIN 
+public class Main {
+    public static void main(String[] args) {
+        Cachorro cachorro = new Cachorro("Rex");
+        cachorro.fazerSom();
+        cachorro.buscarBola();
+
+        Gato gato = new Gato("Garfield");
+        gato.fazerSom();
+        gato.brincarComFio();
+    }
+}
+
+CLASSE ANIMAL
+
+public class Animal {
+    private String nome;
+
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public void fazerSom() {
+        System.out.println(nome + " faz um som.");
+    }
+}
+
+CLASSE CACHORRO
+
+public class Cachorro extends Animal {
+    public Cachorro(String nome) {
+        super(nome);
+    }
+
+    @Override
+    public void fazerSom() {
+        System.out.println(getNome() + " faz: Au Au");
+    }
+
+    public void buscarBola() {
+        System.out.println(getNome() + " está buscando a bola!");
+    }
+}
+
+CLASSE GATO
+
+public class Gato extends Animal {
+    public Gato(String nome) {
+        super(nome);
+    }
+
+    @Override
+    public void fazerSom() {
+        System.out.println(getNome() + " faz: Miau");
+    }
+
+    public void brincarComFio() {
+        System.out.println(getNome() + " está brincando com um fio!");
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+)Exercício 3
+
+MAIN
+public class Main {
+    public static void main(String[] args) {
+        
+        Forma circulo = new Circulo(7.0);
+        System.out.println("Área do círculo: " + circulo.calcularArea());
+
+        Forma retangulo = new Retangulo(2.0, 2.0);
+        System.out.println("Área do retângulo: " + retangulo.calcularArea());
+    }
+}
+
+CLASSE FORMA
+
+public interface Forma {
+    double calcularArea();
+}
+
+CLASSE CIRCULO
+
+public class Circulo implements Forma {
+    private double raio;
+
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return 3.14 * raio * raio; // Área = π * r²
+    }
+}
+
+CLASSE RETÂNGULO
+
+public class Retangulo implements Forma {
+    private double largura;
+    private double altura;
+
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    @Override
+    public double calcularArea() {
+        return largura * altura; // Área = largura * altura
+    }
+}
