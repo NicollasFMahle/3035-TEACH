@@ -1,0 +1,74 @@
+)Exercício 1 Try-Catch Básico
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o numerador: ");
+        int numerador = scanner.nextInt();
+
+        System.out.print("Digite o denominador: ");
+        int denominador = scanner.nextInt();
+
+        try {
+            int resultado = numerador / denominador;
+            System.out.println("O resultado da divisão é: " + resultado);
+        } catch (ArithmeticException e) {
+            System.out.println("Erro: Divisão por zero não é permitida.");
+        }
+
+        scanner.close();
+    }
+}
+
+)Exercício 2 Try-Catch com múltiplas Exceções
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        String input = scanner.nextLine();
+
+        try {
+            if (input == null) {
+                throw new NullPointerException();
+            }
+            int numero = Integer.parseInt(input);
+            System.out.println("O número inteiro é: " + numero);
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: O formato do número é inválido.");
+        } catch (NullPointerException e) {
+            System.out.println("Erro: A entrada não pode ser nula.");
+        }
+
+        scanner.close();
+    }
+}
+
+)Exercício 3 Try-Catch-Finally
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        String input = scanner.nextLine();
+
+        try {
+            int numero = Integer.parseInt(input);
+            System.out.println("O número inteiro é: " + numero);
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: O formato do número é inválido!");
+        } finally {
+            System.out.println("O bloco finally foi executado!");
+            scanner.close();
+        }
+    }
+}
