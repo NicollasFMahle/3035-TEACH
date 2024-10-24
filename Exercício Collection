@@ -1,0 +1,213 @@
+)Exercício 1 ArrayList 
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> frutas = new ArrayList<>();
+
+        System.out.println("Adicione pelo menos 5 nomes de frutas diferentes:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Fruta " + (i + 1) + ": ");
+            String fruta = scanner.nextLine();
+            frutas.add(fruta);
+        }
+
+        System.out.println("Quantidades de frutas na lista: " + frutas.size());
+
+        if (frutas.size() >= 3) {
+            System.out.println("Terceira fruta: " + frutas.get(2));
+        } else {
+            System.out.println("Não há três frutas na lista.");
+        }
+
+        if (!frutas.isEmpty()) {
+            frutas.remove(0);
+            System.out.println("Primeira fruta removida.");
+        }
+
+        System.out.print("Digite o nome de uma fruta para verificar se existe na lista: ");
+        String frutaParaVerificar = scanner.nextLine();
+        if (frutas.contains(frutaParaVerificar)) {
+            System.out.println(frutaParaVerificar + " está na lista.");
+        } else {
+            System.out.println(frutaParaVerificar + " não está na lista.");
+        }
+
+        System.out.println("Lista de frutas:");
+        for (String fruta : frutas) {
+            System.out.println(fruta);
+        }
+
+        scanner.close();
+    }
+}
+
+)Exercício 2 HashSet
+
+RESPOSTA DA PERGUTA PARA A COR DUPLICADA: 
+HashSet ignora a adição e imprime uma mensagem informando que a cor já existe
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        HashSet<String> cores = new HashSet<>();
+
+        System.out.println("Adicione pelo menos 5 cores:");
+
+        while (cores.size() < 5) {
+            System.out.print("Cor: ");
+            String cor = scanner.nextLine();
+            cores.add(cor);
+        }
+
+        System.out.println("Tamanho do conjunto de cores: " + cores.size());
+
+        String corDuplicada = "azul";
+        boolean adicionou = cores.add(corDuplicada);
+        if (!adicionou) {
+            System.out.println(corDuplicada + " já existe no conjunto.");
+        } else {
+            System.out.println(corDuplicada + " foi adicionada ao conjunto.");
+        }
+
+        System.out.print("Digite o nome de uma cor para remover: ");
+        String corParaRemover = scanner.nextLine();
+        if (cores.remove(corParaRemover)) {
+            System.out.println(corParaRemover + " foi removida do conjunto.");
+        } else {
+            System.out.println(corParaRemover + " não estava no conjunto.");
+        }
+
+        System.out.print("Digite uma cor para verificar se está no conjunto: ");
+        String corParaVerificar = scanner.nextLine();
+        if (cores.contains(corParaVerificar)) {
+            System.out.println(corParaVerificar + " está no conjunto.");
+        } else {
+            System.out.println(corParaVerificar + " não está no conjunto.");
+        }
+
+        System.out.println("Cores no conjunto:");
+        for (String cor : cores) {
+            System.out.println(cor);
+        }
+
+        scanner.close();
+    }
+}
+
+)Exercício 3 Comparando ArrayList e HashSet
+
+RESPOSTA DA PERGUTA SOBRE A DIFERENÇA:
+ArrayList permite números duplicados e mantém a ordem, já o 
+HashSet não permite duplicações, bem como não armazena a ordem de inserção.
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> lista = new ArrayList<>();
+        HashSet<Integer> conjunto = new HashSet<>();
+
+        int[] numeros = {5, 3, 8, 1, 2, 5};
+
+        for (int numero : numeros) {
+            lista.add(numero);
+            conjunto.add(numero);
+        }
+
+        System.out.println("Elementos do ArrayList: " + lista);
+
+        System.out.println("Elementos do HashSet: " + conjunto);
+    }
+}
+
+)Exercício 4 Conversão entre ArrayList e HashSet
+
+O RESULTADO DO MEU TESTE FOI:
+Elementos do HashSet: [, Nicollas, é , Nome , prazer!, Meu]
+Elementos do ArrayList resultante: [, Nicollas, é , Nome , prazer!, Meu]
+O teste curiosamente fez com que a ordem das duas operações se igualasse.
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> palavras = new ArrayList<>();
+
+        System.out.println("Insira palavras (digite 'sair' para finalizar):");
+
+        while (true) {
+            String palavra = scanner.nextLine();
+            if (palavra.equalsIgnoreCase("sair")) {
+                break;
+            }
+            palavras.add(palavra);
+        }
+        
+        HashSet<String> conjunto = new HashSet<>(palavras);
+
+        System.out.println("Elementos do HashSet: " + conjunto);
+
+        ArrayList<String> listaResultante = new ArrayList<>(conjunto);
+
+        System.out.println("Elementos do ArrayList resultante: " + listaResultante);
+
+        scanner.close();
+    }
+}
+
+)Exercício 5 Operações Avançadas
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        System.out.println("Insira números inteiros (digite 'sair' para finalizar):");
+
+        while (true) {
+            String entrada = scanner.nextLine();
+            if (entrada.equals("sair")) {
+                break;
+            }
+            try {
+                int numero = Integer.parseInt(entrada);
+                numeros.add(numero);
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, insira um número inteiro válido.");
+            }
+        }
+
+        numeros.removeIf(numero -> numero % 2 == 0);
+
+        HashSet<Integer> conjuntoImpares = new HashSet<>(numeros);
+
+        System.out.println("Números ímpares: " + conjuntoImpares);
+
+        System.out.print("Digite um número para verificar se está no HashSet: ");
+        int numeroParaVerificar = scanner.nextInt();
+
+        if (conjuntoImpares.contains(numeroParaVerificar)) {
+            System.out.println(numeroParaVerificar + " está no HashSet.");
+        } else {
+            System.out.println(numeroParaVerificar + " não está no HashSet.");
+        }
+
+        scanner.close();
+    }
+}
